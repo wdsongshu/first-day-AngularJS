@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+    <title>第一天作业</title>
+</head>
+<body>
+<div ng-controller="changedNumber">
+    <p>因为天气不好，因为天气很好，因为天气刚刚好。。。{{changedSentence}}!</p>
+</div>
+<script type="text/javascript">
+    function changedNumber($scope, $timeout) {
+        $scope.changedSentence = '阿加西';
+        var timber = function () {
+            $scope.changedSentence = $scope.changedSentence + '西';
+            $timeout(function () {
+                timber();
+            }, 1000)
+        };
+        timber();
+    }
+</script>
+</body>
+</html>
